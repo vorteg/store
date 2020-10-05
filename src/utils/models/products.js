@@ -1,29 +1,6 @@
 const { DataTypes } = require('sequelize')
 const { db } = require('../../lib/postgresql.conf')
 
-// Ejemplo de tabla
-// const Products = db.define('products', {
-//     // Model attributes are defined here
-//     id: {
-//         type: DataTypes.INTEGER,
-//        // autoIncrement: true,
-//         primaryKey: true
-//     },
-//     name: {
-//         type: DataTypes.TEXT
-//     },
-//     price: {
-//         type: DataTypes.INTEGER
-//     },
-//     image: {
-//         type: DataTypes.TEXT
-//     },
-//     tags: {
-//         type: DataTypes.TEXT
-//     },
-//     timestamps: false
-//       });
-
 const Products = db.define('Products', {
   // Model attributes are defined here
   id: {
@@ -54,7 +31,7 @@ const Products = db.define('Products', {
 })
 
 // `sequelize.define` also returns the model
-console.log(Products === db.models.Products) // true
 
+console.log('Status Model DB in products: ',Products === db.models.Products) // true
 module.exports = Products
-// console.log(Products === db.models.Products);
+

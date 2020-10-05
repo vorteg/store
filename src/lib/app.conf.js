@@ -14,3 +14,4 @@ app.use(json())
 app.use('/products', productsRoutes)
 
 export default app
+
