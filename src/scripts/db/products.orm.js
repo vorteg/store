@@ -1,5 +1,6 @@
-const Product = require('../../utils/models/products');
-
+const Products = require('../../utils/models/products');
+const { db } = require('../../lib/postgresql.conf');
+ 
 
 //  Get all products
 export async function getProducts(req, res){
@@ -42,29 +43,46 @@ export async function getOneProdut(req, res) {
 // Creat a new product
 
 export async function createProduct(req, res) {
-    const { name, price, image, tags} = req.body;
+    const { name, price, image, tags} = req.body;    
     try {
-        let newProduct = await Products.create({
+        await Products.create({
             name,
             price, 
             image, 
             tags
-        }, {
-                fields: ['name', 'price', 'image', 'tags']
-            });
-        if (newProduct) {
-            return res.json({
-                message: 'New Product created',
-                data: newProduct
-            })
-        }
+        });
+        res.send('received');
     } catch (error) {
-        console.log(error);
-        res.status(500).json({
-            message: 'Something Goes Wrong creating a new product. Try Again.',
-            data: {},
-        })
+        console.log("Hubo un error al recibir los datos",error)
     }
-    res.json('received');
+    
 };
 
+async function modelSync(){
+    try {
+        await db.sync({force:true});
+        console.log("All models were synchronized successfully.");
+    } catch (error) {
+        console.error('Unable to synchronize the models:', error);   
+    }
+};
+
+
+async function testCreate(){
+    //Products.sync({force: true});
+    try {
+        const jane = await Products.create({ name: "Jane", price: 3, image: "Hola" });
+// Jane exists in the database now!
+console.log(jane instanceof  Products); // true
+console.log(jane.name); // "Jane"
+    } catch (error) {
+        modelSync();
+        console.log('Hubo un error al crear tabla',error);
+    }
+    
+    
+}
+
+
+
+testCreate();
