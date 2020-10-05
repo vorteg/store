@@ -1,19 +1,16 @@
 import express, { json } from 'express'
 import morgan from 'morgan'
 
-
-const app = express();
-
 // Import routes
-import productsRoutes from '../routes/api/products';
+import productsRoutes from '../routes/api/products'
 
+const app = express()
 
 // Middlewares
-app.use(morgan('dev'));
-app.use(json());
+app.use(morgan('dev'))
+app.use(json())
 
 // Routes
-app.use('/products', productsRoutes);
+app.use('/products', productsRoutes)
 
-
-export default app;
+export default app

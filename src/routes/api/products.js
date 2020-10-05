@@ -1,12 +1,11 @@
 import { Router } from 'express'
-const router = Router();
 
 // Controllers
-import { getProducts, createProduct} from '../../scripts/db/products.orm';
+import { getProducts, createProduct } from '../../scripts/db/products.orm'
+const router = Router()
 
 // Routes
-router.post('/', createProduct);
-router.get('/', getProducts);
+router.post('/', createProduct)
+router.get('/', getProducts)
 
-
-export default router;
+export default router
