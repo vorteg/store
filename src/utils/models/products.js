@@ -32,6 +32,5 @@ const Products = db.define('Products', {
 
 // `sequelize.define` also returns the model
 
-console.log('Status Model DB in products: ',Products === db.models.Products) // true
+console.log('Status Model DB in products: ', Products === db.models.Products) // true
 module.exports = Products
-

@@ -2,7 +2,7 @@ const Products = require('../../utils/models/products')
 const { db } = require('../../lib/postgresql.conf')
 
 //  Get all products
-export async function getProducts (req, res) {
+export async function getApiProducts (req, res) {
   try {
     const products = await Products.findAll({
       atributes: ['id', 'name', 'price', 'image', 'tags']
@@ -21,7 +21,7 @@ export async function getProducts (req, res) {
 
 // Get only one product
 
-export async function getOneProdut (req, res) {
+export async function getApiProdut (req, res) {
   const { id } = req.params
   try {
     const project = await Products.findOne({
@@ -41,7 +41,7 @@ export async function getOneProdut (req, res) {
 
 // Creat a new product
 
-export async function createProduct (req, res) {
+export async function createApiProduct (req, res) {
   const { name, price, image, tags } = req.body
   try {
     await Products.create({
@@ -78,4 +78,4 @@ async function testCreate () {
   }
 }
 
-//testCreate()
+// testCreate()
