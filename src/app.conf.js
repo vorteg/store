@@ -2,7 +2,8 @@ import express, { json } from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 import session from 'express-session'
-import productsApi from './routes/api/products'
+import {productsApi} from './routes/api/products'
+import routerProducts from './routes/views/products'
 const PassportLocal = require('passport-local').Strategy
 const path = require("path");
 
@@ -51,7 +52,7 @@ app.use(morgan('dev'))
 app.use(json())
 
 // Routes
-//app.use('/products', productsRoutes)
+app.use('/products', routerProducts)
 productsApi(app)
 
 app.get('/', (req,res,next)=>{
@@ -63,7 +64,7 @@ app.get('/', (req,res,next)=>{
 },(req, res)=> {
     // Si ya iniciamos mostrar bienvenida
     
-    res.render("/products")
+    res.redirect('/products')
     
 })
 

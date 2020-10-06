@@ -1,21 +1,17 @@
-import { Router } from 'express';
 
-const router = Router();
+const express = require("express");
 
 
 // Controllers
 import { getApiProducts, createApiProduct } from '../../scripts/db/products.orm';
 
 // Routes
-function productsApi(app){
-    import app from '../../app.conf'
-    app.use('/products', router);
-    router.post('/api', createApiProduct);
-    router.get('/api', getApiProducts);
-    // router.put('/:id', updateProject);
-    // router.delete('/:id', deleteProject);
-    // router.get('/:id', getOneProject)
+var productsApi = function (app){
+    const router = express.Router();
+    app.use('/api/products', router);
+    router.post('/', createApiProduct);
+    router.get('/', getApiProducts);
     }
 
 
-export default productsApi;
+    module.exports = {productsApi}
