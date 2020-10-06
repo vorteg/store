@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
+    "@babel/runtime": "^7.11.2",
     "bulma": "^0.9.1",
     "chai": "^4.2.0",
     "cookie-parser": "^1.4.5",

@@ -1,17 +1,17 @@
 
 const express = require("express");
+const router = express.Router();
 
 
 // Controllers
-import { getApiProducts, createApiProduct } from '../../scripts/db/products.orm';
+const { getApiProducts, createApiProduct } = require('../../scripts/db/products.orm');
 
 // Routes
-var productsApi = function (app){
-    const router = express.Router();
-    app.use('/api/products', router);
-    router.post('/', createApiProduct);
-    router.get('/', getApiProducts);
+    function productsApi (app){
+        app.use('/api/products', router);
+        router.post('/', createApiProduct);
+        router.get('/', getApiProducts);
     }
 
 
-    module.exports = {productsApi}
+    module.exports = productsApi

@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { db } = require('../../lib/postgresql.conf')
+const  db  = require('../../lib/postgresql.conf')
 
 const Products = db.define('Products', {
   // Model attributes are defined here

@@ -1,8 +1,8 @@
 const Products = require('../../utils/models/products')
-const { db } = require('../../lib/postgresql.conf')
+const db  = require('../../lib/postgresql.conf')
 
 //  Get all products
-export async function getApiProducts (req, res) {
+async function getApiProducts (req, res) {
   try {
     const products = await Products.findAll({
       atributes: ['id', 'name', 'price', 'image', 'tags']
@@ -21,7 +21,7 @@ export async function getApiProducts (req, res) {
 
 // Get only one product
 
-export async function getApiProdut (req, res) {
+async function getApiProdut (req, res) {
   const { id } = req.params
   try {
     const project = await Products.findOne({
@@ -41,7 +41,7 @@ export async function getApiProdut (req, res) {
 
 // Creat a new product
 
-export async function createApiProduct (req, res) {
+async function createApiProduct (req, res) {
   const { name, price, image, tags } = req.body
   try {
     await Products.create({
@@ -55,6 +55,7 @@ export async function createApiProduct (req, res) {
     console.log('Hubo un error al recibir los datos', error)
   }
 };
+module.exports = {getApiProdut,getApiProducts,createApiProduct }
 
 async function modelSync () {
   try {

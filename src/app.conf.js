@@ -2,7 +2,7 @@ import express, { json } from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 import session from 'express-session'
-import {productsApi} from './routes/api/products'
+import productsApi from './routes/api/products'
 import routerProducts from './routes/views/products'
 const PassportLocal = require('passport-local').Strategy
 const path = require("path");

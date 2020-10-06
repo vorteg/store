@@ -1,4 +1,4 @@
-import Sequelize from 'sequelize'
+const Sequelize = require('sequelize') 
 // require('dotenv').config({ path: '/home/qupi/Desktop/Fazt/nodejs-postgresql-restapi/src/.env' });
 require('dotenv').config('/home/qupi/Desktop/store/.env')
 
@@ -9,7 +9,7 @@ const {
   DB_NAME
 } = process.env
 
-export const db = new Sequelize(
+module.exports = new Sequelize(
   // 'postgres',
   // 'postgres',
   // 'password123',
@@ -28,13 +28,13 @@ export const db = new Sequelize(
     logging: false
   }
 )
-export async function testConection () {
-  try {
-    await db.authenticate()
-    console.log('Connection has been established successfully.')
-  } catch (error) {
-    console.error('Unable to connect to the database:', error)
-  }
-}
+// async function testConection () {
+//   try {
+//     await db.authenticate()
+//     console.log('Connection has been established successfully.')
+//   } catch (error) {
+//     console.error('Unable to connect to the database:', error)
+//   }
+// }
 
-testConection()
+// testConection()
