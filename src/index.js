@@ -6,7 +6,7 @@ const port = process.env.port || 3000
 
 async function main () {
   await app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}/products`)
+    console.log(`Server is listening at http://localhost:${port}/`)
   })
 };
 
