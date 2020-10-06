@@ -2,11 +2,13 @@ import express, { json } from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 import session from 'express-session'
+import productsApi from './routes/api/products'
 const PassportLocal = require('passport-local').Strategy
 const path = require("path");
 
+
 // Import routes
-import productsRoutes from './routes/views/products'
+
 import passport from 'passport';
 
 const app = express()
@@ -50,7 +52,7 @@ app.use(json())
 
 // Routes
 //app.use('/products', productsRoutes)
-app.use('/products', productsRoutes)
+productsApi(app)
 
 app.get('/', (req,res,next)=>{
     if(req.isAuthenticated())

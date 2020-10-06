@@ -1,33 +1,28 @@
+var halfPrice = function (units, price) {
+  if (units % 2 == 0) {
+    return (units * price) / 2
+  };
 
-module.exports = class SalesOperations {
-  constructor (units, price, percent = 5) {
-    this.units = units
-    this.price = price
-    this.percent = percent
-  }
-
-  get runHalfprice () {
-    return this.halfPrice()
-  }
-
-  get runSaleoff () {
-    return this.saleOff()
-  }
-
-  halfPrice () {
-    if (this.units % 2 == 0) {
-      return (this.units * this.price) / 2
-    };
-
-    return ((((--this.units) * this.price) / 2) + this.price)
-  }
-
-  saleOff () {
-    if (this.units >= 3) {
-      const save = (this.price * this.percent) / 100
-      return this.units * (this.price - save)
-    };
-
-    return (this.units * this.price)
-  }
+  return ((((--units) * price) / 2) + price)
 }
+
+
+
+
+var saleOff = function (units, price, percent=5){
+  if (units >= 3) {
+    let save = (price * percent) / 100
+    return units * (price - save)
+  };
+
+  return (units * price)
+}
+
+
+var addProducts = function (pants,tshir,hat=0){
+    pantsPrice = this.halfPrice(pants,5)
+    tshirtPrice = this.saleOff(tshir,20)
+    hatPrice = hat*7.5
+    return hatPrice + pantsPrice + tshirtPrice
+}
+module.exports = { halfPrice, saleOff, addProducts}
