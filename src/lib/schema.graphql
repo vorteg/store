@@ -1,0 +1,17 @@
+type Holi {
+    saludo: String
+}
+
+type Products {
+    id: ID
+    name: String
+    price: Float
+    image: String
+    tag: String
+
+}
+
+type Query {
+        getHoli: [Holi],
+        getProducts: [Products]
+    }

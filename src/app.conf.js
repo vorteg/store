@@ -6,13 +6,34 @@ import productsApi from './routes/api/products'
 import routerProducts from './routes/views/products'
 const PassportLocal = require('passport-local').Strategy
 const path = require("path");
+const {makeExecutableSchema}= require('graphql-tools')
+const { graphqlHTTP } = require('express-graphql')
+const { readFileSync } = require('fs')
+const resolvers = require('./lib/resolvers')
 
+
+
+//  schema graphQL define
+const typeDefs = readFileSync(
+    join(__dirname, 'lib', 'schema.graphql'),
+    'utf-8'
+)
+
+const schema = makeExecutableSchema({typeDefs, resolvers})
 
 // Import routes
 
 import passport from 'passport';
+import { join } from 'path'
+
 
 const app = express()
+
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    rootValue: resolvers,
+    graphiql: true
+}) )
 
 //Template Engine
 app.set("views", path.join(__dirname,  "views"));
