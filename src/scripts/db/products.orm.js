@@ -71,6 +71,17 @@ async function modelSync () {
   }
 };
 
+async function testConection () {
+  try {
+    await db.authenticate()
+    console.log('Connection to DB has been established successfully.')
+  } catch (error) {
+    console.error('Unable to connect to the database:', error)
+  }
+}
+
+testConection()
+
 async function testCreate () {
   // Products.sync({force: true});
   try {
