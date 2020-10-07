@@ -55,7 +55,7 @@ app.use(passport.session())
 
 //Serializacion
 passport.use(new PassportLocal(function(username,password,done){
-    if(username === "yop" && password === "12345678")
+    if(username === "admin" && password === "admin")
         return done(null,{ id:1, name:"yop"}) /// aqui hay que traer db
     done(null, false)
     }))
@@ -66,7 +66,7 @@ passport.serializeUser(function(user,done){
 })    
 
 passport.deserializeUser(function(id,done){
-    done(null,{ id:1, name:"yop"})
+    done(null,{ id:1, name:"admin"})
 })
 
 app.use(morgan('dev'))
