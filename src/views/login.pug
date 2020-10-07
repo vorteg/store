@@ -3,8 +3,8 @@ extends layout
 block content
     br
     .container.main-content
-        h1.title Inicio de Sesion
+        h1.title Login
         form(action="/login" method="post")
-            input(type="text" name="username")
-            input(type="password", name="password")
+            input(type="text" name="username" placeholder="username")
+            input(type="password", name="password" placeholder="password") 
             input(type="submit" value="Send")

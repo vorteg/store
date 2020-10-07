@@ -8,11 +8,11 @@ var op = require("../scripts/sales/sales");
 describe("Sales unit tests using ASSERT interface from CHAI module: ", function() {
     describe("Check halfprice Function: ", function() {
         
-        it("Check the elements are pair is applied 2x1 ", function() {
+        it("Check Function: If is pair is applied 2x1 ", function() {
             result = op.halfPrice(2,5);
             assert.equal(result, 5);
         }); 
-        it("Check the elements is inpair is not applied 2x1 for all elements ", function() {
+        it("Check Function: If isn't pair is not applied 2x1 for all products ", function() {
             result = op.halfPrice(3,5);
             assert.equal(result, 10);
         }); 
@@ -21,11 +21,11 @@ describe("Sales unit tests using ASSERT interface from CHAI module: ", function(
 
 describe("Sales tests using ASSERT interface from CHAI module: ", function() {
     describe("Check saleOff Function: ", function() {
-        it("Check the elements are less of 3 will not applied discont ", function() {
+        it("Check Function: Products less than 3, will not applied discount ", function() {
             result = op.saleOff(2,20);
             assert.equal(result, 40);
         });  
-        it("Check the elements are most of 3 will discont of 5% ", function() {
+        it("Check Function: Products  more than 3 or equal,It will have 5% off ", function() {
             result = op.saleOff(4,20);
             assert.equal(result, 76);
         });  

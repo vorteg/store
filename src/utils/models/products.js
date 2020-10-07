@@ -16,13 +16,13 @@ const Products = db.define('Products', {
     // allowNull defaults to true
   },
   price: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   image: {
     type: DataTypes.STRING
   },
-  tag: {
+  tags: {
     type: DataTypes.STRING
   }
 

@@ -4,30 +4,23 @@ const productsMock = {"data":[
     "name":"Hat",
     "price":7.5,
     "image":"https://images.pexels.com/photos/744365/pexels-photo-744365.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-    "tag":null
+    "tags":"HAT"
   },
   { 
     "id":2,
     "name":"T-Shirt",
     "price":20,
-    "image":"https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?cs=srgb&dl=pexels-mnz-1598507.jpg&fm=jpg",
-    "tag":null
+    "image":"https://images.pexels.com/photos/2294342/pexels-photo-2294342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "tags":"T-SHIRT"
   },
   { 
     "id":3,
-    "name":
-    "Pants",
+    "name":"Pants",
     "price":5,
-    "image":"https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?cs=srgb&dl=pexels-mnz-1598507.jpg&fm=jpg","tag":null},{"id":4,"name":"Test","price":5,"image":"https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?cs=srgb&dl=pexels-mnz-1598507.jpg&fm=jpg",
-    "tag":null
-  },
-  {
-    "id":4,
-    "name":"Test",
-    "price":5,
-    "image":"https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?cs=srgb&dl=pexels-mnz-1598507.jpg&fm=jpg",
-    "tag":null
-}]}
+    "image":"https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "tags":"PANTS"
+  }
+  ]}
 
   function filteredProductsMock(tag) {
     return productsMock.filter(product => product.tags.includes(tag));

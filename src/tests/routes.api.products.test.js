@@ -10,7 +10,7 @@ const {
 const testServer = require("../utils/testServer");
 
 
-describe("routes - api - products", function() {
+describe("Functional route api tests", function() {
     const route = proxyquire("../routes/api/products", {
       "../../scripts/db/products.orm": ProductsServiceMock
     });

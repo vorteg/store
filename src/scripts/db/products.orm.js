@@ -44,6 +44,7 @@ async function getApiProdut (req, res) {
 async function createApiProduct (req, res) {
   const { name, price, image, tags } = req.body
   try {
+    //await modelSync () para limpiar tabla
     await Products.create({
       name,
       price,
@@ -52,7 +53,11 @@ async function createApiProduct (req, res) {
     })
     res.send('received')
   } catch (error) {
-    console.log('Hubo un error al recibir los datos', error)
+    console.log('Error parsing data', error)
+    await modelSync ()
+    console.log('Send request again')
+    res.send('Error 500 , Send request again')
+
   }
 };
 module.exports = {getApiProdut,getApiProducts,createApiProduct }
