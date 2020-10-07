@@ -2,7 +2,7 @@ type Holi {
     saludo: String
 }
 
-type Products {
+type Product {
     id: ID
     name: String
     price: Float
@@ -11,7 +11,11 @@ type Products {
 
 }
 
+
+
 type Query {
         getHoli: [Holi],
-        getProducts: [Products]
+        getProducts: [Product]
+        getProduct(id: Int!): Product
     }
+

@@ -23,15 +23,34 @@ module.exports = {
             return holi
         },
         getProducts: async () => {
-            let db, products=[]
+            
             try {
-                let products = await Products.findAll()
+                const products = await Products.findAll()
                 return products
             } catch (error) {
                 console.log(error)
             }
-            return products
-        }
+            
+        },
+        getProduct: async (root, idparse) => {
+            
+            let id  = idparse["id"]
+            try {
+                
+                let product = await Products.findOne({
+                    where: {
+                      id: id
+                    }
+                  })
+                return product
+            } catch (error) {
+                console.log(error)
+            }
+            
+        },
+
+        
+        
     }
     
 } 
